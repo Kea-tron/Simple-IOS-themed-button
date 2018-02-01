@@ -1,0 +1,100 @@
+<head>
+
+
+<style>
+
+body {
+	background: grey;
+}
+
+#con { /* positions switch in center of page, used for easy viewing, delete if needed */
+	position: fixed;
+	top: 50%;
+	left: 50%;
+}
+
+.red { 
+  	width:100px;
+  	height:50px;
+	margin: auto;
+	margin-top: 10px;
+	border-radius:  50px;
+	border: 3px solid white;
+  	background: red;
+  	transition: .5s;
+}
+
+.green { 
+  	width:100px;
+  	height:50px;
+	margin: auto;
+	margin-top: 10px;
+	border-radius:  50px;
+	border: 3px solid white;
+  	background: green;
+  	transition: .5s;
+}
+
+#line {
+	width:60px;
+	height: 10px;
+	margin: auto;
+	background: grey;
+	border-radius: 10px;
+	opacity: .5;
+	position: relative;
+	top: 20px;
+}
+
+.on {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: white;
+	position: relative;
+	left: 50px;
+	bottom: 5px;
+	transition: .5s;
+}
+
+.off {
+  	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: white;
+	position: relative;
+	left: 10px;
+	bottom: 5px;
+	transition: .5s;
+}
+
+</style>
+</head>
+<body>
+	<div id="con" class="green" onclick="myfunc(sphere, con)"><!-- red/green container -->
+		
+		<div id="line"></div><!-- line that circle moves along -->
+		<div id="sphere" class="on"></div> <!-- circle -->
+
+	</div>
+
+<script>
+function myfunc(sphere, con) {
+	var className1 = sphere.getAttribute("class");
+	var className2 = con.getAttribute("class");
+  
+	if(className1=="on") { // If the switch has class name "on", circle moves to left & turns green,
+    sphere.className = "off";
+		con.className = "red";
+  } 
+	
+	if(className1=="off") { // If the switch has class name "off", circle moves to right & turns green,
+    sphere.className = "on";
+		con.className = "green";
+  }
+  else{
+    sphere.className = "off"; // Defaults to class "off"
+  }
+}
+</script>
+</body>
